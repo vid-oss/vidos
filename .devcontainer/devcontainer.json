@@ -1,0 +1,43 @@
+{
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.remote-containers",
+        "vadimcn.vscode-lldb",
+        "serayuzgur.crates",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "tamasfe.even-better-toml",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "rust-lang.rust-analyzer"
+      ],
+      "settings": {
+        "rust-analyzer.check.command": "clippy",
+        "rust-analyzer.check.extraArgs": [
+          "--",
+          "-Wclippy::pedantic",
+          "-Aclippy::missing_panics_doc",
+          "-Aclippy::missing_errors_doc",
+          "-Aclippy::module_name_repetitions"
+        ],
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "prettier.useEditorConfig": true,
+        "[rust]": {
+          "editor.defaultFormatter": "rust-lang.rust-analyzer",
+          "editor.formatOnSave": true
+        },
+        "[toml]": {
+          "editor.defaultFormatter": "tamasfe.even-better-toml"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      }
+    }
+  },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev-env",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}

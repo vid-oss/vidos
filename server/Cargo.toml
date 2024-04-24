@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+
+members = ["vid-api", "vid-core"]
+
+[profile.dev]
+debug = false
+
+[workspace.dependencies]

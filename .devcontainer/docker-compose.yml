@@ -1,0 +1,31 @@
+version: "3.5"
+
+services:
+  dev-env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    networks:
+      - common
+  nats:
+    image: nats:2.10.14
+    command: "-js"
+    restart: unless-stopped
+    ports:
+      - "14222:4222"
+    networks:
+      - common
+  scylla:
+    image: scylladb/scylla:5.4.5
+    command: "--smp 1"
+    restart: unless-stopped
+    ports:
+      - "9042:9042"
+      - "19042:19042"
+    networks:
+      - common
+networks:
+  common:
