@@ -1,4 +1,5 @@
 mod object;
+mod resolution;
 mod subtitle;
 mod subtitle_translation;
 mod time_range;

@@ -1,19 +1,13 @@
-use derive_more::Display;
+use derive_more::{Display, From, Into};
 use isolang::Language;
 use time::OffsetDateTime;
 use uuid::Uuid;
 
 use crate::{object::ObjectLocation, user::UserId};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Display)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From, Into)]
 pub struct VideoId {
     id: Uuid,
-}
-
-impl From<Uuid> for VideoId {
-    fn from(value: Uuid) -> Self {
-        Self { id: value }
-    }
 }
 
 #[derive(Debug, Clone)]
@@ -22,8 +16,14 @@ pub struct Video {
     created_at: OffsetDateTime,
     created_by: UserId,
     langauge: Language,
-    object_location: ObjectLocation,
+    source_location: SourceLocation,
     is_published: bool,
+}
+
+#[derive(Debug, Clone)]
+pub struct SourceLocation {
+    video: ObjectLocation,
+    subtitles: ObjectLocation,
 }
 
 #[derive(Debug, Clone)]
