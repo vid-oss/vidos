@@ -7,3 +7,9 @@ members = ["vid-api", "vid-core"]
 debug = false
 
 [workspace.dependencies]
+derive_more = "0.99.17"
+thiserror = "1.0.59"
+uuid = { version = "1.8.0", features = ["v4", "serde"] }
+
+time = { version = "0.3.36", features = ["serde", "formatting"] }
+isolang = { version = "2.4.0", features = ["serde"] }
